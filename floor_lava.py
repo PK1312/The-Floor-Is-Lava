@@ -71,7 +71,7 @@ def get_input(x):
         print "You can't get ye flask. Now you need to sit around wondering why in the world you can't get ye flask."
     elif x.lower() == "look self" or x.lower() == "look at self" or x.lower() == "look at myself":
         print "You're wearing your pajamas. They have polar bears on them. Your mom has a matching pair. It's dorky as hell but also you love them."
-    elif x.lower() == "go bed" or x.lower() == "go to bed" or x.lower() == "get back into bed" or x.lower() == "get back in bed" or x.lower() == "get in bed" or "jump into bed":
+    elif x.lower() == "go bed" or x.lower() == "go to bed" or x.lower() == "get back into bed" or x.lower() == "get back in bed" or x.lower() == "get in bed" or x.lower() == "jump into bed":
         if player_location == "bed":
             print "You're already in bed. You're supposed to be getting OUT of bed, ya dang dingus."
         elif player_location == "towel":
