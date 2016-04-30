@@ -7,12 +7,14 @@ player_location = "bed"
 player_clothing = "pajamas"
 game_complete = False
 has_key = False
+has_flashlight = False
 
 def get_input(x):
     global player_location
     global player_clothing
     global game_complete
     global has_key
+    global has_flashlight
     if x.lower() == "get up" or x.lower() == "stand up" or x.lower() == "get out of bed" or x.lower() == "wake up" or x.lower() == "roll out of bed":
         if player_location == "towel":
             print "You're as up as you can get."
@@ -23,7 +25,10 @@ def get_input(x):
         print "You look around your room. The floor glows redly, and you feel the heat rolling off it in waves. Floating conspiculously in the center of your room is a TOWEL. You can also see your CLOSET DOOR, behind which lies your school uniform. On the other side of the wall from your CLOSET DOOR is the EXIT. Nex to your bed is the NIGHTSTAND, atop which you can see a SMALL BOX."
 
     elif x.lower() == "look nightstand" or x.lower() == "look at nightstand" or x.lower() == "examine nightstand" or x.lower() == "look night stand" or x.lower() == "look at night stand" or x.lower() == "examine night stand" or x.lower() == "look box" or x.lower() == "look at box" or x.lower() == "look at small box" or x.lower() == "look small box":
-        print "It's a nightstand for your reading lamp. Atop the nightstand is a small box."
+        print "It's a nightstand for your reading lamp. Atop the nightstand is a small box. There is a small shelf under the nightstand."
+    elif x.lower() == "look shelf" or x.lower() == "open shelf" or x.lower() == "pull shelf open" or x.lower() == "pull open shelf":
+        has_flashlight = True
+        print "You pull open the drawer and you see your flashlight. This could come in handy, because everyone knows that monsters hate flashlights. You pocket the flashlight."
     elif x.lower() == "get box" or x.lower() == "get small box" or x.lower() == "open box" or x.lower() == "open small box":
         has_key = True
         print "You open the small box. Inside is a small brass key, which you slip into your pocket."
@@ -40,10 +45,12 @@ def get_input(x):
         elif player_location == "towel":
             print "Which door are you trying to open, your CLOSET DOOR or the EXIT DOOR?"
     elif x.lower() == "open closet" or x.lower() == "open closet door" or x.lower() == "closet door" or x.lower() == "closet":
-        if player_location == "towel" and has_key == True:
+        if player_location == "towel" and has_key == True and has_flashlight = True
             player_clothing = "uniform"
-            print "You've done it! You manage to get the closet door open, and grab your SCHOOL UNIFORM. It's difficult on your floating towel, but you manage to change into it, letting your pajamas burn up in the lava."
+            print "You've done it! You manage to get the closet door open, and shine your flashlight into the closet. The monster screeches and dissolves into black steam. You grab your uniform out of the closet and don it. It's difficult on your floating towel, but you manage to change into it, letting your pajamas burn up in the lava."
             return player_clothing
+        elif player_location == "towel" and has_key == True and has_flashlight = False:
+            print "You can't open your closet door yet- the monster's still in there! You need something to scare it off. You know the creature is scared of bright lights."
         elif player_location == "bed":
             print "You strain to reach the closet door from the foot of your bed, but your tiny arms are simply not long enough to reach. If only there was a way to get closer to the door..."
         elif player_location == "towel" and has_key == False:
